@@ -2,12 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
   # fixtures :all
-  it 'customer first test - sequence factory' do
-    customer_male = create(:customer_male_vip)
-    customer_female = create(:customer_female_default)
-    expect(customer_male.email).to eq('customeremail1@email.com')
-    expect(customer_female.email).to eq('customeremail2@email.com')
-  end
   it '#full_name' do
     # customer = customers(:fulano) -> para fixtures
     customer = create(:customer)
