@@ -1,6 +1,6 @@
 require 'rails_helper'
 # actually it currently has being used system instead of features
-RSpec.feature "Customers", type: :feature do
+RSpec.feature "Customers", type: :feature do #, js: true
   it 'visit index page' do
     visit(customers_path)
     expect(page).to have_current_path(customers_path)
@@ -17,4 +17,10 @@ RSpec.feature "Customers", type: :feature do
 
     expect(page).to have_content('Customer was successfully created.')
   end
+  # it 'Ajax' do
+  #   visit customers_path
+  #   click_on('Add Message')
+  #   save_and_open_page
+  #   expect(page).to have_content('Yes!')
+  # end
 end
