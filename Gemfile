@@ -43,6 +43,7 @@ group :development, :test do
   gem 'httparty'
   gem 'webmock'
   gem 'vcr'
+  gem 'rspec-json_expectations'
 end
 
 group :development do

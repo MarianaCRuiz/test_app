@@ -10,8 +10,8 @@ class NewCustomerForm
     self
   end
 
-  def visit_page
-    visit(new_customer_path)
+  def visit_page(path)
+    visit(path)
     self
   end
 

@@ -1,5 +1,6 @@
 require 'webmock/rspec'
 require 'vcr'
+require 'capybara/rspec'
 VCR.configure do |config|
   config.ignore_localhost = true
   config.allow_http_connections_when_no_cassette = true

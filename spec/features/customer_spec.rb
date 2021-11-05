@@ -25,7 +25,7 @@ RSpec.feature "Customers", type: :feature do
     expect(page).to have_content('Customer was successfully created.')
   end
   it 'Creates a Customer - Page Object Pattern' do
-    new_customer_form.login.visit_page.fill_in_with(
+    new_customer_form.login.visit_page(new_customer_path).fill_in_with(
       name: Faker::Name.name,
       email: Faker::Internet.email,
       address: Faker::Address.street_address
