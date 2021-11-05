@@ -6,6 +6,14 @@ RSpec.describe "Customers", type: :request do
       get customers_path
       expect(response).to have_http_status(200)
     end
+    it 'JSON Schema' do
+      member = create(:member)
+      customer = create(:customer)
+      login_as(member, scope: :member)
+      get "/customers/#{customer.id}.json"
+      expect(response).to have_http_status(200)
+      expect(response.body).to match_response_schema('customer')
+    end
     it 'index JSON' do
       customer = Customer.first
       customer ||= create(:customer)
@@ -28,6 +36,17 @@ RSpec.describe "Customers", type: :request do
         name: customer.name,
         email: customer.email
       )
+    end
+    it 'show JSON puro' do
+      member = create(:member)
+      customer = create(:customer)
+      login_as(member, scope: :member)
+      get "/customers/#{customer.id}.json"
+      parsed = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+      expect("#{parsed['id']}").to match(/\d+/)
+      expect(parsed['name']).to eq(customer.name)
+      expect(parsed['email']).to eq(customer.email)
     end
     it 'create JSON' do
       customer_params = attributes_for(:customer)

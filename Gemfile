@@ -44,6 +44,7 @@ group :development, :test do
   gem 'webmock'
   gem 'vcr'
   gem 'rspec-json_expectations'
+  gem 'json_matchers'
 end
 
 group :development do

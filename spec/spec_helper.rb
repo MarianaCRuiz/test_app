@@ -1,6 +1,9 @@
 require 'webmock/rspec'
 require 'vcr'
 require 'capybara/rspec'
+require 'json_matchers/rspec' # JSON Schema
+JsonMatchers.schema_root = "spec/support/api/schemas"
+
 VCR.configure do |config|
   config.ignore_localhost = true
   config.allow_http_connections_when_no_cassette = true
